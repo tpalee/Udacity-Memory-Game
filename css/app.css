@@ -1,0 +1,282 @@
+html {
+     box-sizing: border-box;
+}
+ *, *::before, *::after {
+     box-sizing: inherit;
+}
+ html, body {
+     width: 100%;
+     height: 100%;
+     margin: 0;
+     padding: 0;
+}
+ body {
+     background: #ffffff url('../img/backgroundpattern.png');
+     font-family: 'Luckiest Guy', sans-serif;
+     color: #ffffff;
+}
+ .container {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column;
+}
+/* * Styles for the deck of cards */
+ .deck {
+     width:100%;
+     max-width: 660px;
+     height: 680px;
+     background: #ffffff;
+     padding: 32px;
+     border-radius: 10px;
+     box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: space-between;
+     align-items: center;
+}
+ .deck .card {
+     height: 22%;
+     width: 22%;
+     background: #009cde;
+     color: #ffffff;
+     border-radius: 8px;
+     cursor: pointer;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     margin:0.2em;
+     box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+}
+ .emoji{
+     width:80%;
+}
+ .deck .card .emoji{
+     visibility: hidden;
+}
+ .deck .card.open {
+     background: #ffeb00;
+     cursor: default;
+}
+ .deck .card.open .emoji {
+     visibility: visible;
+     animation-name: scale;
+     animation-duration: 0.3s;
+     animation-iteration-count: 1;
+}
+ @keyframes scale{
+     0%{
+        transform:scale(1.0)
+    }
+     50%{
+        transform:scale(1.5)
+    }
+     100%{
+        transform:scale(1.0)
+    }
+}
+ .deck .card.mismatch {
+     background: #ffeb00;
+}
+ .deck .card.mismatch .emoji {
+     visibility:visible;
+     animation-name: shake;
+     animation-duration: 0.3s;
+     animation-iteration-count: 2;
+}
+ @keyframes shake {
+     10%, 90% {
+         transform: translate3d(-1px, 0, 0);
+    }
+     20%, 80% {
+         transform: translate3d(2px, 0, 0);
+    }
+     30%, 50%, 70% {
+         transform: translate3d(-4px, 0, 0);
+    }
+     40%, 60% {
+         transform: translate3d(4px, 0, 0);
+    }
+}
+ .deck .card.match {
+     background: #ebba07;
+}
+ .deck .card.match .emoji {
+     visibility:visible;
+     animation-name: match;
+     animation-duration: 0.3s;
+     animation-iteration-count: 2;
+}
+ @keyframes match{
+     0%{
+        transform:scale(1.0)
+    }
+     50%{
+        transform:scale(1.5)
+    }
+     100%{
+        transform:scale(1.0)
+    }
+}
+/* * Style for the Game title-image */
+ .gameimg{
+     margin-top:5px;
+     width: 90%;
+     max-width:640px;
+}
+/* * Styles for the Score Panel */
+ .score-panel {
+     width:100%;
+     max-width:640px;
+     justify-content: space-between;
+     align-items: center;
+     display:inline-block;
+     margin-bottom: 10px;
+     font-size:1.4em;
+}
+ .score-panel .stars {
+     margin: 0;
+     padding: 0;
+     display: inline-block;
+     margin: 0 5px 0 0;
+}
+ .score-panel .stars li {
+     list-style: none;
+     display: inline-block;
+}
+ .star{
+     width:2em;
+}
+ .score-panel .restart {
+     cursor: pointer;
+}
+ .score-panel .restart :hover {
+     cursor: pointer;
+     color:#f4dc42;
+}
+ .score{
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: space-between;
+     align-items: center;
+}
+/* * Styles for the Score Panel */
+ .winner-panel{
+     display:none;
+     width:100%;
+     height: 100%;
+     left:0;
+     top:0;
+     position: fixed;
+     overflow: hidden;
+     z-index: 1;
+     background-color: rgba(0, 0, 0, 0.7);
+}
+ .winner-content{
+     max-width:500px;
+     display:flex;
+     flex-direction: column;
+     width:100%;
+     margin-top:30px;
+     margin-left:auto;
+     margin-right:auto;
+     border-radius: 10px;
+     background: blue;
+     padding: 10px;
+     text-align: center;
+}
+ #winnerimg{
+     width:95%;
+     margin:auto;
+}
+ .winnertext {
+     font-size: 1.5em;
+     color:#ffffff;
+}
+ .winner-panel .winner-content .winnerresults .winnerlist li {
+     list-style: none;
+     display: inline-block;
+}
+ #close{
+     background-color: red;
+     width:30px;
+     color:#ffffff;
+     border-radius: 4px;
+     font-size: 1em;
+     float:right;
+     margin-right:3px;
+     margin-left: auto;
+     margin-bottom:5px;
+}
+ #close:hover {
+     color:red;
+     background-color: #ffffff;
+}
+ @media screen and (max-width: 660px) {
+     .deck {
+         max-height:680px;
+         margin: 0 0 1em;
+    }
+     .deck .card {
+         width:20%;
+         height:20%;
+    }
+     .score-panel{
+         width:95%;
+    }
+     .score-panel .score{
+         width:100%;
+         align-items: center;
+         margin:0;
+         padding:0;
+         font-size:1em;
+    }
+}
+/* * Media Queries */
+ @media screen and (max-width: 520px) {
+     .deck {
+         max-height:530px;
+         padding:20px;
+         margin: 0 0 1em;
+    }
+     .deck .card {
+         width:22%;
+         height:22%;
+    }
+
+     .score-panel {
+         height:140px;
+         overflow:hidden;
+    }
+
+     .starrating, .restart, .movecounter, .time {
+         position: relative;
+         width:50%;
+         height:70px;
+    }
+
+     .star{
+         width:1.4em;
+    }
+}
+
+ @media screen and (max-width: 450px) {
+     .deck {
+         max-height:480px;
+         padding:15px;
+    }
+}
+
+ @media screen and (max-width: 390px) {
+     .deck {
+         min-width:320px;
+         max-height: 400px;
+         padding:10px;
+    }
+     .star{
+         width:1em;
+    }
+     .score-panel {
+         width:320px;
+    }
+}
