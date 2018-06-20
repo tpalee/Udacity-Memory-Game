@@ -189,7 +189,7 @@ function closing(event) {
 
 
 //function sound is an object constructor which all the (new)sound-objects
-//inherits it's properties from
+//inherits it's properties from (found on W3schools)
 function sound(src) {
     this.sound = document.createElement("audio");
     this.sound.src = src;
