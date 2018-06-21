@@ -20,12 +20,6 @@ The player has to keep flipping óver the cards until all cards are matched.
 ## Building the memory game
 A deck of cards is created in html and CSS, that will be manipulated by (vanilla)javascript.\
 
-
-## Dependencies
-The memorygame makes use of the icons from (Bootstrap)font-Awesome, 
-and uses fonts from the google-fonts API.
-
-
 1.HTML\
 The HTML documents contains three important sections:\
 Score-panel where you can check the number of moves, time and star-rating.\
@@ -45,3 +39,7 @@ you’ve earned from 1 tot 3.\
 The Winnerfunction collects the time-score, number of movers, and achieved stars.\
 4. Design\
 The emoticons on the cards are hand-drawn and digitalized with Adobe Illustrator. 
+
+## Dependencies
+The memorygame makes use of the icons from (Bootstrap)font-Awesome, 
+and uses fonts from the google-fonts API.
