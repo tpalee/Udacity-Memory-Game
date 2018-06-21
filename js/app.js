@@ -23,6 +23,8 @@ let timerStatus = 1;
 let timeOut;
 
 //declaration of the winner-"pop-up" varibles and Event Listener(s)
+const playAgain = document.querySelector("#playagain");
+playAgain.addEventListener("click", rePlay);
 var winner = document.getElementById('winner');
 var closebutton = document.getElementById('close');
 closebutton.addEventListener('click', closing);
@@ -34,6 +36,7 @@ function newGame() {
     //resetting, timers,scores=0, arrays empty, three stars
     counter = 0;
     winnerArray = [];
+    compareArray = [];
     stars.innerHTML = saveStars;
     moves.innerHTML = counter;
     const shuffleArray = [];
@@ -182,14 +185,17 @@ function winning() {
 
 //function closing closes the winner-pop-up, so you can restart the game (or admire the emoticons :);
 function closing(event) {
-    event.preventDefault;
     winner.style.display = "none";
 };
 
-
+//function rePlay closes the winner-pop-up, and restarts the game;
+function rePlay(event){
+  closing();
+  newGame();
+}
 
 //function sound is an object constructor which all the (new)sound-objects
-//inherits it's properties from (found on W3schools)
+//inherits it's properties from
 function sound(src) {
     this.sound = document.createElement("audio");
     this.sound.src = src;

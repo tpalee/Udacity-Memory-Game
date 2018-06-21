@@ -212,6 +212,11 @@ html {
      color:red;
      background-color: #ffffff;
 }
+#playagain{
+    width:50%;
+    margin-left: auto;
+    margin-right: auto;
+}
  @media screen and (max-width: 660px) {
      .deck {
          max-height:680px;
